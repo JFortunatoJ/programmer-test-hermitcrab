@@ -34,7 +34,7 @@ public abstract class BaseCharacterActions<TMovement, TAnimations> : MonoBehavio
 
         for (int i = 0; i < targetsAmount; i++)
         {
-            if (!hitTargets[i].TryGetComponent(out IDamageable damageable)) continue;
+            if (!hitTargets[i].attachedRigidbody.TryGetComponent(out IDamageable damageable)) continue;
 
             damageable.TakeDamage(Damage);
         }

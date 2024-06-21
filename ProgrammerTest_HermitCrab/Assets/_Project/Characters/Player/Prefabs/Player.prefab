@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  _health: 0
 --- !u!114 &8821056630744689274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +253,7 @@ GameObject:
   - component: {fileID: 8821056631997296959}
   - component: {fileID: 8821056631997296953}
   m_Layer: 7
-  m_Name: Visual
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
