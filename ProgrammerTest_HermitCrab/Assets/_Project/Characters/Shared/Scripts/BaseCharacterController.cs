@@ -26,6 +26,32 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
         Animations.Init();
         Movement.Init(Animations, transform.eulerAngles.y == 0 ? 1 : -1);
         Actions.Init(Movement, Animations);
-        Health.Init();
+        Health.Init(OnDie);
+    }
+
+    public void MoveLeft()
+    {
+        Movement.MoveHorizontally(-1);
+    }
+
+    public void MoveRight()
+    {
+        Movement.MoveHorizontally(1);
+    }
+
+    public void Stop()
+    {
+        Movement.Stop();
+    }
+
+    public void MeleeAttack()
+    {
+        Actions.MeleeAttack();
+    }
+
+    public virtual void OnDie()
+    {
+        print("On die");
+        Animations.Die();
     }
 }

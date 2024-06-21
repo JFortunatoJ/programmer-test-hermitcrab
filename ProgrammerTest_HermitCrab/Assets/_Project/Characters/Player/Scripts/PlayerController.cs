@@ -50,21 +50,6 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
         }
     }
 
-    public void MoveLeft()
-    {
-        Movement.MoveHorizontally(-1);
-    }
-
-    public void MoveRight()
-    {
-        Movement.MoveHorizontally(1);
-    }
-
-    public void Stop()
-    {
-        Movement.Stop();
-    }
-
     public void Jump()
     {
         Movement.Jump();
@@ -73,10 +58,5 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
     public void Shoot()
     {
         Actions.Shoot();
-    }
-
-    public void MeleeAttack()
-    {
-        Actions.MeleeAttack();
     }
 }

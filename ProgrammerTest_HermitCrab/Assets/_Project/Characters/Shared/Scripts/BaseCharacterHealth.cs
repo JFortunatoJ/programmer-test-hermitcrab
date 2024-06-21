@@ -19,15 +19,13 @@ public abstract class BaseCharacterHealth : MonoBehaviour, IDamageable
             }
         }
     }
-
     public int MaxHealth => _maxHealth;
 
-    public Action OnDie;
+    protected Action OnDie;
 
-
-    public void Init()
+    public void Init(Action onDie)
     {
-
+        OnDie = onDie;
     }
 
     public void TakeDamage(int damage)

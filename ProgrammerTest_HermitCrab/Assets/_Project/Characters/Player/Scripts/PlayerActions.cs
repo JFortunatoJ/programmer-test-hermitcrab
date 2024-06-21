@@ -27,7 +27,7 @@ public class PlayerActions : BaseCharacterActions<PlayerMovement, PlayerAnimatio
     private PlayerBullet InstantiateBullet()
     {
         var bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint);
-        bullet.Init(_bulletSpawnPoint);
+        bullet.Init(_bulletSpawnPoint, _targetsMask);
         bullet.gameObject.SetActive(false);
         return bullet;
     }
@@ -50,11 +50,6 @@ public class PlayerActions : BaseCharacterActions<PlayerMovement, PlayerAnimatio
         var bullet = GetAvailableBulletFromPool();
         bullet.gameObject.SetActive(true);
         bullet.Spawn(_movement.HorizontalDirection);
-    }
-
-    public override void MeleeAttack()
-    {
-        _animations.MeleeAttack();
     }
 
     public void Shoot()

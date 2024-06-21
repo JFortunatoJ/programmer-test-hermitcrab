@@ -4,17 +4,18 @@ public class PlayerBullet : MonoBehaviour, IWeapon
 {
     [SerializeField] private int _damage = 5;
     [SerializeField] private float _collisionRadius = .6f;
-    [SerializeField] private LayerMask _collisionLayers;
 
+    private LayerMask _collisionLayers;
     private Vector3 _movementDirection;
     private Transform _spawnPoint;
 
     public int Damage => _damage;
 
-    public void Init(Transform spawnPoint)
+    public void Init(Transform spawnPoint, LayerMask collisionLayers)
     {
         _spawnPoint = spawnPoint;
         _movementDirection = Vector3.zero;
+        _collisionLayers = collisionLayers;
     }
 
     public void Spawn(int directionX)
