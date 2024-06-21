@@ -4,7 +4,7 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
     where TMovement : BaseCharacterMovement<TAnimations>
     where TAnimations : BaseCharacterAnimations
     where THealth : BaseCharacterHealth
-    where TActions : BaseCharacterActions
+    where TActions : BaseCharacterActions<TMovement, TAnimations>
 {
     public TMovement Movement { get; protected set; }
     public TAnimations Animations { get; protected set; }
@@ -24,7 +24,8 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
         Animations = transform.GetChild(0).GetComponent<TAnimations>();
 
         Animations.Init();
-        Movement.Init(Animations);
+        Movement.Init(Animations, transform.eulerAngles.y == 0 ? 1 : -1);
+        Actions.Init(Movement, Animations);
         Health.Init();
     }
 }

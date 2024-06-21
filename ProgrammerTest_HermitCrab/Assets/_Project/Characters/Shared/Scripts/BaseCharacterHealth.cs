@@ -1,9 +1,47 @@
+using System;
 using UnityEngine;
 
-public abstract class BaseCharacterHealth : MonoBehaviour
+public abstract class BaseCharacterHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] protected int _maxHealth;
+
+    private int _health;
+
+    public int Health
+    {
+        get => _health;
+        private set
+        {
+            _health = Mathf.Clamp(value, 0, _maxHealth);
+            if (_health == 0)
+            {
+                Destroy();
+            }
+        }
+    }
+
+    public int MaxHealth => _maxHealth;
+
+    public Action OnDie;
+
+
     public void Init()
     {
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+    }
+
+    public void Heal(int healAmount)
+    {
+        Health += healAmount;
+    }
+
+    public void Destroy()
+    {
+        OnDie?.Invoke();
     }
 }

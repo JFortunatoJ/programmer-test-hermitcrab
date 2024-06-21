@@ -14,7 +14,7 @@ public abstract class BaseCharacterAnimations : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Melee()
+    public void MeleeAttack()
     {
         _animator.SetTrigger(_meleeKey);
     }

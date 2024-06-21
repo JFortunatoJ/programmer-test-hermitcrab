@@ -14,7 +14,7 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
     private void HandleKeyboardInput()
     {
         HandleMovementInput();
-        HandleShootInput();
+        HandleAttackInput();
     }
 
     private void HandleMovementInput()
@@ -38,11 +38,15 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
         }
     }
 
-    private void HandleShootInput()
+    private void HandleAttackInput()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Actions.Shoot();
+            Shoot();
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            MeleeAttack();
         }
     }
 
@@ -64,5 +68,15 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
     public void Jump()
     {
         Movement.Jump();
+    }
+
+    public void Shoot()
+    {
+        Actions.Shoot();
+    }
+
+    public void MeleeAttack()
+    {
+        Actions.MeleeAttack();
     }
 }

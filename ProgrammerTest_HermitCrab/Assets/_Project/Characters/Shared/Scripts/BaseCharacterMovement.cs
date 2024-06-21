@@ -9,16 +9,20 @@ public abstract class BaseCharacterMovement<TAnimations> : MonoBehaviour where T
 
     protected TAnimations _animations;
 
-    public virtual void Init(TAnimations animations)
+    public int HorizontalDirection { get; protected set; }
+
+    public virtual void Init(TAnimations animations, int initialDirection)
     {
         _animations = animations;
+        HorizontalDirection = initialDirection;
 
         _rigidbody = GetComponent<Rigidbody2D>();
         _moveDirection = Vector2.zero;
     }
 
-    public void MoveHorizontally(float directionX)
+    public void MoveHorizontally(int directionX)
     {
+        HorizontalDirection = directionX;
         transform.rotation = directionX > 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
 
         _moveDirection.x = directionX * _movementSpeed * Time.deltaTime;
