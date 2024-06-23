@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1484001035831426345}
   - component: {fileID: 8105502973554623780}
   - component: {fileID: 1829093414017400177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,9 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 5
   _collisionRadius: 0.6
-  _collisionLayers:
-    serializedVersion: 2
-    m_Bits: 832
 --- !u!95 &1484001035831426344
 Animator:
   serializedVersion: 5
@@ -110,8 +107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -877724981
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

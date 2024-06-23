@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8821056630744689273}
   - component: {fileID: 8821056630744689275}
   - component: {fileID: 8821056630744689274}
+  - component: {fileID: 5814771702113729096}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -127,6 +128,17 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1871103534187125403, guid: d71a5eb4badcb9042a589686fee4013c, type: 3}
   _bulletSpawnPoint: {fileID: 8821056631315911268}
   _bulletPoolSize: 15
+--- !u!210 &5814771702113729096
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821056630744689276}
+  m_Enabled: 1
+  m_SortingLayerID: -877724981
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &8821056631076873664
 GameObject:
   m_ObjectHideFlags: 0

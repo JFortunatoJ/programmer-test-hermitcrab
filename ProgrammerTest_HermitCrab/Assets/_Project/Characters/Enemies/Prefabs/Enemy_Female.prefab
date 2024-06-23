@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3513371717654139034}
   - component: {fileID: 3513371717654139028}
   - component: {fileID: 3513371717654139031}
+  - component: {fileID: 5418935720348760972}
   m_Layer: 8
   m_Name: Enemy_Female
   m_TagString: Untagged
@@ -204,9 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a8b330f62920e478d164f8828d5e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
   _patrolRestTime: 3
   _sightDistance: 10
   _attackDistance: 3
@@ -257,6 +255,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _health: 0
+--- !u!210 &5418935720348760972
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513371717654139030}
+  m_Enabled: 1
+  m_SortingLayerID: -877724981
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &3513371718003007274
 GameObject:
   m_ObjectHideFlags: 0

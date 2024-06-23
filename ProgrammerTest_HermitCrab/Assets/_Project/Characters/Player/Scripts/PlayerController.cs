@@ -61,4 +61,10 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
     {
         Actions.Shoot();
     }
+
+    public override void OnDie()
+    {
+        base.OnDie();
+        DataEvent.DataEvent.Notify(new OnPlayerDeathEvent());
+    }
 }
