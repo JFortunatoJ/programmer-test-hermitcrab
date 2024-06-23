@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3513371716741270483, guid: 6fb1ac9110b6ba34d9965d43482a2d9e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3513371716741270485, guid: 6fb1ac9110b6ba34d9965d43482a2d9e, type: 3}
       propertyPath: m_Sprite
       value: 

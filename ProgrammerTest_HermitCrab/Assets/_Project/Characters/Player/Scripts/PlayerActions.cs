@@ -27,7 +27,7 @@ public class PlayerActions : BaseCharacterActions<PlayerMovement, PlayerAnimatio
     private PlayerBullet InstantiateBullet()
     {
         var bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint);
-        bullet.Init(_bulletSpawnPoint, _targetsMask);
+        bullet.Init(_bulletSpawnPoint, _targetsLayers);
         bullet.gameObject.SetActive(false);
         return bullet;
     }

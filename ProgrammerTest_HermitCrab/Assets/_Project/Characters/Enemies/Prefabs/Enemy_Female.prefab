@@ -163,7 +163,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3513371717654139030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 4.55, y: -4.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -204,6 +204,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a8b330f62920e478d164f8828d5e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  _patrolRestTime: 3
+  _sightDistance: 10
+  _attackDistance: 3
+  _attackInterval: 2
+  _secondsToForgetTarget: 3
 --- !u!114 &3513371717654139034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cae755d77c7734e9abcecfb6fad38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 10
+  _movementSpeed: 6
 --- !u!114 &3513371717654139028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +240,7 @@ MonoBehaviour:
   _meleeDamage: 20
   _hitPoint: {fileID: 3513371718003007273}
   _hitPointRadius: 0.5
-  _targetsMask:
+  _targetsLayers:
     serializedVersion: 2
     m_Bits: 128
 --- !u!114 &3513371717654139031

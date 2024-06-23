@@ -121,12 +121,12 @@ MonoBehaviour:
   _meleeDamage: 20
   _hitPoint: {fileID: 8821056631076873667}
   _hitPointRadius: 0.5
-  _targetsMask:
+  _targetsLayers:
     serializedVersion: 2
     m_Bits: 832
   _bulletPrefab: {fileID: 1871103534187125403, guid: d71a5eb4badcb9042a589686fee4013c, type: 3}
   _bulletSpawnPoint: {fileID: 8821056631315911268}
-  _bulletPoolSize: 10
+  _bulletPoolSize: 15
 --- !u!1 &8821056631076873664
 GameObject:
   m_ObjectHideFlags: 0

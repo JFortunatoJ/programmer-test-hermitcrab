@@ -64,6 +64,7 @@ public abstract class BaseCharacterHealth : MonoBehaviour, IDamageable
     public void Destroy()
     {
         IsDead = true;
+        gameObject.layer = transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Dead");
         OnDie?.Invoke();
     }
 }
