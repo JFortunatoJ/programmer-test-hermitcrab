@@ -15,7 +15,7 @@ public class PauseController : MonoBehaviour
     {
         _view = GetComponent<PauseView>();
         _view.OnContinueClick = Continue;
-        _view.OnMainMenuClick = LoadMainMenu;
+        _view.OnExitClick = LoadMainMenu;
 
         Time.timeScale = 0f;
     }
