@@ -6,6 +6,8 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
 
     private void Update()
     {
+        if (Health.IsDead) return;
+
 #if UNITY_EDITOR
         HandleKeyboardInput();
 #endif

@@ -11,6 +11,9 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
     public THealth Health { get; protected set; }
     public TActions Actions { get; protected set; }
 
+    protected Collider2D _collider;
+    protected SpriteRenderer _characterRenderer;
+
     protected void Awake()
     {
         Init();
@@ -23,10 +26,13 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
         Actions = GetComponent<TActions>();
         Animations = transform.GetChild(0).GetComponent<TAnimations>();
 
+        _characterRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _collider = _characterRenderer.GetComponent<Collider2D>();
+
         Animations.Init();
         Movement.Init(Animations, transform.eulerAngles.y == 0 ? 1 : -1);
         Actions.Init(Movement, Animations);
-        Health.Init(OnDie);
+        Health.Init(OnDie, _characterRenderer);
     }
 
     public void MoveLeft()
@@ -51,7 +57,6 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
 
     public virtual void OnDie()
     {
-        print("On die");
         Animations.Die();
     }
 }

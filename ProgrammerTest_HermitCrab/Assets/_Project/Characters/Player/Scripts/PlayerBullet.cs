@@ -54,7 +54,8 @@ public class PlayerBullet : MonoBehaviour, IWeapon
         {
             DestroyBullet();
 
-            if (!collisions[0].TryGetComponent(out IDamageable damageable)) return;
+            if (!collisions[0].attachedRigidbody ||
+                !collisions[0].attachedRigidbody.TryGetComponent(out IDamageable damageable)) return;
 
             damageable.TakeDamage(Damage);
         }

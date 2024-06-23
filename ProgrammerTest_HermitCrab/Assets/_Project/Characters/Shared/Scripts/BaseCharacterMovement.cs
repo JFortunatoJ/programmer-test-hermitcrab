@@ -23,7 +23,7 @@ public abstract class BaseCharacterMovement<TAnimations> : MonoBehaviour where T
     public void MoveHorizontally(int directionX)
     {
         HorizontalDirection = directionX;
-        transform.rotation = directionX > 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+        RotateCharacter(directionX);
 
         _moveDirection.x = directionX * _movementSpeed * Time.deltaTime;
         _rigidbody.position += _moveDirection;
@@ -31,7 +31,16 @@ public abstract class BaseCharacterMovement<TAnimations> : MonoBehaviour where T
         _animations.IsMoving = true;
     }
 
-    public void Stop()
+    /// <summary>
+    /// Rotates the character.
+    /// </summary>
+    /// <param name="directionX">Direction to rotate. < 0 equals Left, > 0 equals Right.</param>
+    public void RotateCharacter(int directionX)
+    {
+        transform.rotation = directionX > 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+    }
+
+    public virtual void Stop()
     {
         _animations.IsMoving = false;
     }
