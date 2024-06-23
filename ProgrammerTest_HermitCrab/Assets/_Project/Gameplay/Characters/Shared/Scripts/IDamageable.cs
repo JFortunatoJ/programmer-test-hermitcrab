@@ -5,5 +5,6 @@ public interface IDamageable
     bool IsDead { get; }
 
     void TakeDamage(int damage);
+    void Heal(int amount);
     void Destroy();
 }

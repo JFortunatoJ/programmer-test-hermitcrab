@@ -9,6 +9,10 @@ public abstract class BaseCharacterHealth : MonoBehaviour, IDamageable
     [SerializeField]
     protected int _health;
 
+    protected SpriteRenderer _characterRenderer;
+    protected Tweener _damageBlinkTween;
+    protected int _originalLayer;
+
     public virtual int Health
     {
         get => _health;
@@ -23,18 +27,15 @@ public abstract class BaseCharacterHealth : MonoBehaviour, IDamageable
     }
 
     public int MaxHealth => _maxHealth;
-
     public bool IsDead { get; protected set; }
-
-    protected Action OnDie;
-    protected SpriteRenderer _characterRenderer;
-    protected Tweener _damageBlinkTween;
+    public Action OnDie { get; set; }
 
     public virtual void Init(Action onDie, SpriteRenderer characterRenderer)
     {
-        OnDie = onDie;
+        OnDie += onDie;
         Health = MaxHealth;
         _characterRenderer = characterRenderer;
+        _originalLayer = gameObject.layer;
     }
 
     public virtual void TakeDamage(int damage)
@@ -59,6 +60,12 @@ public abstract class BaseCharacterHealth : MonoBehaviour, IDamageable
     public void Heal(int healAmount)
     {
         Health += healAmount;
+
+        if (Health > 0 && IsDead)
+        {
+            IsDead = false;
+            gameObject.layer = transform.GetChild(0).gameObject.layer = _originalLayer;
+        }
     }
 
     public virtual void Destroy()

@@ -9,12 +9,19 @@ public abstract class BaseCharacterAnimations : MonoBehaviour
     protected static readonly int _isMovingKey = Animator.StringToHash("IsMoving");
     protected static readonly int _meleeKey = Animator.StringToHash("Melee");
     protected static readonly int _dieKey = Animator.StringToHash("Die");
+    protected static readonly int _respawnKey = Animator.StringToHash("Respawn");
 
     public bool IsMoving { set => _animator.SetBool(_isMovingKey, value); }
 
     public virtual void Init()
     {
         _animator = GetComponent<Animator>();
+    }
+
+    public virtual void Respawn()
+    {
+        _animator.SetTrigger(_respawnKey);
+        IsMoving = false;
     }
 
     public void MeleeAttack(Action onHitPoint)

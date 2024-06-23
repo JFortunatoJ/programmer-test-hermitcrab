@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/UI/Pause/PauseScene.unity
     guid: ac6792e4da796d944ba9d729612a8940
+  - enabled: 1
+    path: Assets/_Project/UI/Defeat/DefeatScene.unity
+    guid: a35821f6725ada74fa95c951416195be
+  - enabled: 1
+    path: Assets/_Project/UI/Victory/VictoryScene.unity
+    guid: ca1ecbdac6b8bf54fb2001b925a51f74
   m_configObjects: {}

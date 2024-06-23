@@ -11,5 +11,7 @@ public class EnemySpawn : MonoBehaviour
     {
         _enemy.SetWaypoints(Waypoints);
         _enemy.StartPatrol();
+
+        DataEvent.DataEvent.Notify(new OnEnemySpawnEvent(1));
     }
 }

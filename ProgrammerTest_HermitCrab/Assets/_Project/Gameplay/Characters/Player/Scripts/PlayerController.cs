@@ -4,10 +4,15 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    public void Spawn(Vector3 position)
+    {
+        transform.position = position;
+        Health.Heal(Health.MaxHealth);
+        Animations.Respawn();
+    }
+
     private void Update()
     {
-        if (Health.IsDead) return;
-
 #if UNITY_EDITOR
         HandleKeyboardInput();
 #endif
@@ -15,6 +20,10 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
 
     private void HandleKeyboardInput()
     {
+        if (Health.IsDead ||
+            GameManager.Instance.IsPaused ||
+            GameManager.Instance.GameOver) return;
+
         HandleMovementInput();
         HandleAttackInput();
     }

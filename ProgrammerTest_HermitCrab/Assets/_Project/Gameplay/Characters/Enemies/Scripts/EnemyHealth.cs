@@ -17,5 +17,6 @@ public class EnemyHealth : BaseCharacterHealth
     {
         base.Destroy();
         _enemyHealthUI.gameObject.SetActive(false);
+        DataEvent.DataEvent.Notify(new OnEnemyDefeatEvent(1));
     }
 }

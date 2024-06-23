@@ -2,13 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(MainMenuView))]
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : BaseScreenController<MainMenuView>
 {
-    private MainMenuView _view;
-
     private void Start()
     {
-        _view = GetComponent<MainMenuView>();
+        Time.timeScale = 1;
         _view.OnPlayButtonClick += PlayGame;
     }
 

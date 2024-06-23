@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseView : MonoBehaviour
+public class PauseView : BaseScreenView
 {
     [SerializeField] private Button _continueButton;
     [SerializeField] private Button _exitButton;

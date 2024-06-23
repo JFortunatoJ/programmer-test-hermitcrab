@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4508aabf54d2b4da989093d61e3184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeDamage: 20
+  _meleeDamage: 40
   _hitPoint: {fileID: 8821056631076873667}
   _hitPointRadius: 0.5
   _targetsLayers:

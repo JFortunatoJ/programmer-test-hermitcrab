@@ -16,15 +16,10 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
 
     protected void Awake()
     {
-        GetReferences();
-    }
-
-    protected void Start()
-    {
         Init();
     }
 
-    protected virtual void GetReferences()
+    protected virtual void Init()
     {
         Movement = GetComponent<TMovement>();
         Health = GetComponent<THealth>();
@@ -33,10 +28,7 @@ public abstract class BaseCharacterController<TMovement, TAnimations, THealth, T
 
         _characterRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _collider = _characterRenderer.GetComponent<Collider2D>();
-    }
 
-    protected virtual void Init()
-    {
         Animations.Init();
         Movement.Init(Animations, transform.eulerAngles.y == 0 ? 1 : -1);
         Actions.Init(Movement, Animations);

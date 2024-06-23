@@ -15,6 +15,6 @@ public class PauseButton : MonoBehaviour
 
     private void OnClick()
     {
-        PauseController.PauseGame();
+        DataEvent.DataEvent.Notify(new OnGamePauseEvent(true));
     }
 }

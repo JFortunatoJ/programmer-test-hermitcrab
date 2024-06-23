@@ -2,32 +2,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PauseView))]
-public class PauseController : MonoBehaviour
+public class PauseController : BaseScreenController<PauseView>
 {
-    private PauseView _view;
-
-    public static void PauseGame()
+    public static void Open()
     {
         SceneManager.LoadScene(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.Pause), LoadSceneMode.Additive);
     }
 
+    public static void Close()
+    {
+        SceneManager.UnloadSceneAsync(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.Pause));
+    }
+
     private void Start()
     {
-        _view = GetComponent<PauseView>();
         _view.OnContinueClick = Continue;
         _view.OnExitClick = LoadMainMenu;
-
-        Time.timeScale = 0f;
     }
 
     private void Continue()
     {
-        Time.timeScale = 1f;
-        SceneManager.UnloadSceneAsync(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.Pause));
+        DataEvent.DataEvent.Notify(new OnGamePauseEvent(false));
     }
 
     private void LoadMainMenu()
     {
-
+        SceneManager.LoadScene(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.MainMenu));
     }
 }

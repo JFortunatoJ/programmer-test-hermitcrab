@@ -4,10 +4,12 @@ public class PlayerBullet : MonoBehaviour, IWeapon
 {
     [SerializeField] private int _damage = 5;
     [SerializeField] private float _collisionRadius = .6f;
+    [SerializeField] private float _timeToDestroy = 3;
 
     private LayerMask _collisionLayers;
     private Vector3 _movementDirection;
     private Transform _spawnPoint;
+    private float _lifeTime;
 
     public int Damage => _damage;
 
@@ -26,7 +28,7 @@ public class PlayerBullet : MonoBehaviour, IWeapon
         _movementDirection.x = directionX;
         transform.rotation = _spawnPoint.rotation;
 
-        Invoke(nameof(DestroyBullet), 3);
+        _lifeTime = 0;
     }
 
     public void DestroyBullet()
@@ -40,6 +42,7 @@ public class PlayerBullet : MonoBehaviour, IWeapon
     {
         Movement();
         CheckCollision();
+        LifeTime();
     }
 
     private void Movement()
@@ -58,6 +61,15 @@ public class PlayerBullet : MonoBehaviour, IWeapon
                 !collisions[0].attachedRigidbody.TryGetComponent(out IDamageable damageable)) return;
 
             damageable.TakeDamage(Damage);
+        }
+    }
+
+    private void LifeTime()
+    {
+        _lifeTime += Time.deltaTime;
+        if (_lifeTime > _timeToDestroy)
+        {
+            DestroyBullet();
         }
     }
 }

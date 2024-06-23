@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715c73b85ed4a174cb43ad672d92a0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
+  _damage: 20
   _collisionRadius: 0.6
 --- !u!95 &1484001035831426344
 Animator:
