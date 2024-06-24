@@ -33,9 +33,7 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
 
     private void HandleInput()
     {
-        if (Health.IsDead ||
-            GameManager.Instance.IsPaused ||
-            GameManager.Instance.GameOver) return;
+        if (!CanAct()) return;
 
         if (_controls.IsLeftInputPressed)
         {
@@ -58,12 +56,23 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
 
     public void Jump()
     {
+        if (!CanAct()) return;
+
         Movement.Jump();
     }
 
     public void Shoot()
     {
+        if (!CanAct()) return;
+
         Actions.Shoot();
+    }
+
+    private bool CanAct()
+    {
+        return !Health.IsDead &&
+            !GameManager.Instance.IsPaused &&
+            !GameManager.Instance.GameOver;
     }
 
     public override void OnDie()

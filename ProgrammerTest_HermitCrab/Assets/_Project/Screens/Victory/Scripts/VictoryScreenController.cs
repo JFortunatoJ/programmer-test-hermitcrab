@@ -4,7 +4,7 @@ public class VictoryScreenController : BaseScreenController<VictoryScreenView>
 {
     public static void Show()
     {
-        SceneManager.LoadScene(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.DefeatScreen), LoadSceneMode.Additive);
+        SceneManager.LoadScene(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.VictoryScreen), LoadSceneMode.Additive);
     }
 
     private void Start()

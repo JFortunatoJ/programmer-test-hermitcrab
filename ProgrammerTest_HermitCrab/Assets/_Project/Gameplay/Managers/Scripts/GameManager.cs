@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,11 +64,11 @@ public class GameManager : MonoBehaviour
 
         if (victory)
         {
-            SceneManager.LoadScene(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.VictoryScreen), LoadSceneMode.Additive);
+            VictoryScreenController.Show();
         }
         else
         {
-            SceneManager.LoadScene(ScenesHelper.GetSceneName(ScenesHelper.GameScenes.DefeatScreen), LoadSceneMode.Additive);
+            DefeatScreenController.Show();
         }
     }
 
