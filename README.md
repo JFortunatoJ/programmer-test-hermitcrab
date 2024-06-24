@@ -27,6 +27,7 @@ Another aspect of the project is that all the screens are separated in different
 
 ## Next updates
 
+* Finish level design of level 1
 * Improve the player character's physics by applying concepts such as "coyote time" and "edge detection".
 * Implement dependency injection through frameworks like Zenject.
 * Refactor the organization of the character animator, or even use another solution to control the animations, as the Animator is a relatively expensive component, especially in a mobile game.
