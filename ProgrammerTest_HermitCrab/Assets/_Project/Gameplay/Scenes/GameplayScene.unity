@@ -18886,7 +18886,7 @@ MonoBehaviour:
   _playerSpawn: {fileID: 840247169}
   _timer: {fileID: 1832030425}
   _score: {fileID: 1703584610}
-  _gameTimeInSeconds: 10
+  _gameTimeInSeconds: 60
 --- !u!1 &780907747
 GameObject:
   m_ObjectHideFlags: 0
