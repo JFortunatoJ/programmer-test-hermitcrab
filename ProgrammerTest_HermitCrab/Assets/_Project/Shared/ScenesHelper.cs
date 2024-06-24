@@ -4,7 +4,7 @@ public static class ScenesHelper
 {
     public enum GameScenes
     {
-        MainMenu, Gameplay, Pause, GameOver
+        MainMenu, Gameplay, Pause, DefeatScreen, VictoryScreen
     }
 
     public static Dictionary<GameScenes, string> Scenes = new Dictionary<GameScenes, string>
@@ -12,7 +12,8 @@ public static class ScenesHelper
         { GameScenes.MainMenu, "MainMenuScene" },
         { GameScenes.Gameplay, "GameplayScene" },
         { GameScenes.Pause, "PauseScene" },
-        { GameScenes.GameOver, "GameOverScene" }
+        { GameScenes.DefeatScreen, "DefeatScene" },
+        { GameScenes.VictoryScreen, "VictoryScene" }
     };
 
     public static string GetSceneName(GameScenes scene)

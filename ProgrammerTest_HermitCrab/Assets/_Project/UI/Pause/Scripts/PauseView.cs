@@ -2,23 +2,23 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseView : MonoBehaviour
+public class PauseView : BaseScreenView
 {
     [SerializeField] private Button _continueButton;
-    [SerializeField] private Button _mainMenuButton;
+    [SerializeField] private Button _exitButton;
 
     public Action OnContinueClick;
-    public Action OnMainMenuClick;
+    public Action OnExitClick;
 
     private void Start()
     {
         _continueButton.onClick.AddListener(() => OnContinueClick?.Invoke());
-        _mainMenuButton.onClick.AddListener(() => OnMainMenuClick?.Invoke());
+        _exitButton.onClick.AddListener(() => OnExitClick?.Invoke());
     }
 
     private void OnDestroy()
     {
         _continueButton.onClick.RemoveAllListeners();
-        _mainMenuButton.onClick.RemoveAllListeners();
+        _exitButton.onClick.RemoveAllListeners();
     }
 }
