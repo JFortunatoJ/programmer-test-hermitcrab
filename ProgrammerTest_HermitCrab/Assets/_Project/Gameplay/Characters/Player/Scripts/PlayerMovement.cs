@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : BaseCharacterMovement<PlayerAnimations>
 {
+    [SerializeField] private PlayerControls _controls;
+
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _fallMultiplier;
     [SerializeField] private float _jumpVelocityFalloff;
@@ -31,7 +33,7 @@ public class PlayerMovement : BaseCharacterMovement<PlayerAnimations>
             return;
         }
 
-        if (_rigidbody.velocity.y < _jumpVelocityFalloff || _rigidbody.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        if (_rigidbody.velocity.y < _jumpVelocityFalloff || _rigidbody.velocity.y > 0 && !_controls.IsJumpInputPressed)
         {
             _rigidbody.velocity += _fallMultiplier * Physics2D.gravity.y * Time.deltaTime * Vector2.up;
             _animations.Fall();

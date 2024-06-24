@@ -3,6 +3,21 @@ using UnityEngine;
 public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAnimations, PlayerHealth, PlayerActions>
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private PlayerControls _controls;
+
+    protected override void Init()
+    {
+        base.Init();
+
+        _controls.OnMeleeInputPressed += MeleeAttack;
+        _controls.OnShootInputPressed += Shoot;
+    }
+
+    private void OnDestroy()
+    {
+        _controls.OnMeleeInputPressed -= MeleeAttack;
+        _controls.OnShootInputPressed -= Shoot;
+    }
 
     public void Spawn(Vector3 position)
     {
@@ -13,28 +28,20 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
 
     private void Update()
     {
-#if UNITY_EDITOR
-        HandleKeyboardInput();
-#endif
+        HandleInput();
     }
 
-    private void HandleKeyboardInput()
+    private void HandleInput()
     {
         if (Health.IsDead ||
             GameManager.Instance.IsPaused ||
             GameManager.Instance.GameOver) return;
 
-        HandleMovementInput();
-        HandleAttackInput();
-    }
-
-    private void HandleMovementInput()
-    {
-        if (Input.GetKey(KeyCode.A))
+        if (_controls.IsLeftInputPressed)
         {
             MoveLeft();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (_controls.IsRightInputPressed)
         {
             MoveRight();
         }
@@ -43,21 +50,9 @@ public class PlayerController : BaseCharacterController<PlayerMovement, PlayerAn
             Stop();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_controls.IsJumpInputPressed)
         {
             Jump();
-        }
-    }
-
-    private void HandleAttackInput()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Shoot();
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            MeleeAttack();
         }
     }
 
